@@ -15,6 +15,7 @@ func main() {
 	app.Action = func(c *cli.Context) {
 		if exists := checkFile(c.Args().First()); !exists {
 			println("No matching file, can't continue.")
+			os.Exit(1)
 		}
 		println("File located, proceding.")
 		candidate := c.Args()[0]
